@@ -1,0 +1,22 @@
+﻿@model IPagedList<HotelListViewModel>
+
+<div id="hotelsList">
+    <div class="pagedList" data-tph-target="#hotelList">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page}),
+        PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div>
+
+            <h4>@Html.ActionLink(item.Name,"Details","Hotel",new { id = item.Id },null)</h4>
+            <div>@item.City,@item.Country</div>
+            <div>
+                Reviews:@item.CountOfReviews
+            </div>
+            <hr />
+        </div>
+    }
+
+</div>

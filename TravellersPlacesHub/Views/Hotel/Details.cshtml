@@ -1,0 +1,46 @@
+﻿@model TravellersPlacesHub.Models.Hotel
+
+@{
+    ViewBag.Title = "Hotel";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<fieldset>
+    <legend>@Html.DisplayFor(model => model.Name)</legend>
+
+   
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.City):
+        </div>
+        <div class="display-field">
+           <b> @Html.DisplayFor(model => model.City)</b>
+        </div>
+   
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Country):
+    </div>
+    <div class="display-field">
+        <b> @Html.DisplayFor(model => model.Country)</b>
+</div>
+
+    <h4>Reviews</h4>
+
+            <div>
+                @foreach (var r in Model.Reviews)
+                {
+                <div>@r.Body</div>
+                for(int i=0;i<r.Rating;i++)
+                {<b>★</b>}
+
+                <hr />
+                }
+            </div>+
+     
+           
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

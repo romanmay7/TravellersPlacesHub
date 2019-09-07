@@ -1,0 +1,34 @@
+﻿@model IPagedList<HotelListViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<form method="get">
+
+<input type="search" name="searchTerm" />
+<input type="submit" value="Search By Name"/>
+</form>*@
+
+@*Ajax.BeginForm makes asynchronous request to the server
+    and renders only portion of the screen:"hotelsList"*@
+
+@*@using (Ajax.BeginForm(
+   new AjaxOptions
+   {
+       HttpMethod = "get",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "hotelsList"
+   }))
+{
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Search By Name" />
+}*@      
+
+<form method="get" action="@Url.Action("Index")"
+      data-tph-ajax="true" data-tph-target="#hotelsList">
+    <input type="search" name="searchTerm" data-tph-autocomplete="@Url.Action("Autocomplete")" />
+    <input type="submit" value="Search By Name" />
+</form>
+       
+@Html.Partial("_Hotels", Model);

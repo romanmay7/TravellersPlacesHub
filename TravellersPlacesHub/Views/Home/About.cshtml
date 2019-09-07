@@ -1,0 +1,24 @@
+﻿@model TravellersPlacesHub.Models.AboutModel
+
+@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@Model.Name</h2>
+</hgroup>
+
+<div>Location of our Office is in @Model.Location</div>
+
+<aside>
+    <h3>Choose your Place!</h3>
+    <p>
+        Browse the site.
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>
